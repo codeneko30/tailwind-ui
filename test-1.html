@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuDex - All Workflow Templates</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans antialiased text-gray-800 text-sm">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-[#222222] text-white flex items-center justify-between px-4 py-2.5 shadow-md">
+        <!-- Logo & Main Menu -->
+        <div class="flex items-center space-x-8">
+            <span class="text-lg font-bold tracking-wider text-red-600 font-serif">DOCUDEX</span>
+            <nav class="hidden md:flex items-center space-x-6 text-sm">
+                <a href="#" class="hover:text-gray-300">Home</a>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Documents</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Workflow</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Old Workflow</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Reports</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Configuration</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Right User & Notification Menu -->
+        <div class="flex items-center space-x-3">
+            <div class="bg-red-600 text-white text-xs px-2 py-0.5 rounded font-semibold">
+                99+
+            </div>
+            <div class="bg-[#333333] text-white text-xs px-3 py-1.5 rounded flex items-center space-x-2 cursor-pointer border border-gray-700">
+                <span>MCAPS HUB / LOU.MOD.CHO.CAD</span>
+                <i class="fa-solid fa-chevron-down text-[10px]"></i>
+            </div>
+            <div class="flex items-center space-x-2 cursor-pointer pl-2 border-l border-gray-700">
+                <div class="w-7 h-7 bg-gray-500 rounded-full overflow-hidden flex items-center justify-center text-xs">
+                    <i class="fa-solid fa-user text-gray-200"></i>
+                </div>
+                <span class="text-xs text-gray-300">kashfia</span>
+                <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header & Breadcrumb -->
+    <div class="bg-[#2e2e2e] text-white px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between shadow-inner">
+        <h1 class="text-xl font-light text-gray-200">All Workflow Templates</h1>
+        <div class="text-xs text-gray-400 mt-2 md:mt-0 flex items-center space-x-2">
+            <i class="fa-solid fa-house text-[11px]"></i>
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-right text-[9px]"></i>
+            <span>Workflow</span>
+            <i class="fa-solid fa-chevron-right text-[9px]"></i>
+            <span class="text-gray-200">All Templates</span>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="p-6">
+        
+        <!-- Filter Bar -->
+        <div class="bg-white p-3 rounded shadow-sm border border-gray-200 mb-6 flex flex-wrap items-center gap-3">
+            <!-- Department Select -->
+            <div class="relative w-64">
+                <select class="w-full appearance-none bg-white border border-gray-300 rounded px-3 py-1.5 pr-8 text-xs text-gray-700 focus:outline-none focus:border-gray-500">
+                    <option>Select Department</option>
+                    <option>Liability Operations Unit</option>
+                    <option>CAD (Credit Administration Department)</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+            </div>
+
+            <!-- Form Select -->
+            <div class="relative w-64">
+                <select class="w-full appearance-none bg-white border border-gray-300 rounded px-3 py-1.5 pr-8 text-xs text-gray-700 focus:outline-none focus:border-gray-500">
+                    <option>Select Form</option>
+                    <option>Test LOU Form 1</option>
+                    <option>Loan Document Approval Process</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+            </div>
+
+            <!-- Template Name Input -->
+            <div class="w-56">
+                <input type="text" placeholder="Template Name" class="w-full bg-white border border-gray-300 rounded px-3 py-1.5 text-xs text-gray-700 focus:outline-none focus:border-gray-500">
+            </div>
+
+            <!-- Search Button -->
+            <button class="bg-[#28a745] hover:bg-[#218838] text-white px-3.5 py-1.5 rounded text-xs flex items-center space-x-1.5 transition">
+                <i class="fa-solid fa-magnifying-glass text-[10px]"></i>
+                <span>Search</span>
+            </button>
+
+            <!-- Clear Button -->
+            <button class="bg-[#dc3545] hover:bg-[#c82333] text-white px-3.5 py-1.5 rounded text-xs flex items-center space-x-1.5 transition">
+                <i class="fa-solid fa-xmark text-[11px]"></i>
+                <span>Clear</span>
+            </button>
+        </div>
+
+        <!-- Data Table Card -->
+        <div class="bg-white rounded shadow-sm border border-gray-200 overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[1000px]">
+                <thead>
+                    <tr class="bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-700">
+                        <th class="py-3 px-4 border-r border-gray-200 w-1/4">Workflow</th>
+                        <th class="py-3 px-4 border-r border-gray-200 w-1/5">Form</th>
+                        <th class="py-3 px-4 border-r border-gray-200 w-1/6">Department</th>
+                        <th class="py-3 px-4 border-r border-gray-200">Category/Product</th>
+                        <th class="py-3 px-4 border-r border-gray-200 text-center">Total Steps</th>
+                        <th class="py-3 px-4 border-r border-gray-200 text-center">Operational Window</th>
+                        <th class="py-3 px-4 border-r border-gray-200 text-center">Display Order</th>
+                        <th class="py-3 px-4 border-r border-gray-200 text-center">Enabled</th>
+                        <th class="py-3 px-4 text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 text-xs text-gray-700">
+                    
+                    <!-- Row 1 -->
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer">NON-IBW WF Template 1</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Test LOU Form 1</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Liability Operations Unit</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Documents</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">1</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"><span class="bg-[#17a2b8] text-white text-[10px] px-2 py-0.5 rounded font-medium">Non-IBW</span></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">
+                            <span class="bg-[#28a745] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">ON</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <button class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded text-[11px]"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer">Investment Approval process</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Loan Document Approval Process</td>
+                        <td class="py-3 px-4 border-r border-gray-200">CAD (Credit Administration Department)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Documents</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">7</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">
+                            <span class="bg-[#28a745] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">ON</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <button class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded text-[11px]"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer">Transactional Account: Individual (Non-IBW)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Individual Opening Form LOU</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Liability Operations Unit</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Documents</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">9</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"><span class="bg-[#17a2b8] text-white text-[10px] px-2 py-0.5 rounded font-medium">Non-IBW</span></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">
+                            <span class="bg-[#28a745] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">ON</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <button class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded text-[11px]"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+
+                    <!-- Row 4 -->
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer">Transactional Account: Individual (IBW)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Individual Opening Form LOU</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Liability Operations Unit</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Documents</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">8</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"><span class="bg-[#17a2b8] text-white text-[10px] px-2 py-0.5 rounded font-medium">IBW</span></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">
+                            <span class="bg-[#28a745] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">ON</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <button class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded text-[11px]"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+
+                    <!-- Row 5 -->
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer">Loan Document Service Flow</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Loan Document Approval Process</td>
+                        <td class="py-3 px-4 border-r border-gray-200">CAD (Credit Administration Department)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Documents</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">2</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">
+                            <span class="bg-[#28a745] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">ON</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <button class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded text-[11px]"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+
+                    <!-- Row 6 -->
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer">Loan Document Approval Process (Case to Case - IDBP/LC Only)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Loan Document Approval Process (Case to Case - IDBP/LC Only)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">CAD (Credit Administration Department)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Documents</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">5</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">
+                            <span class="bg-[#28a745] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">ON</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <button class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded text-[11px]"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+
+                    <!-- Row 7 -->
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer">Loan Document Approval Process</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Loan Document Approval Process</td>
+                        <td class="py-3 px-4 border-r border-gray-200">CAD (Credit Administration Department)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Documents</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">5</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">
+                            <span class="bg-[#28a745] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">ON</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <button class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded text-[11px]"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+
+                    <!-- Row 8 -->
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer">Account Servicing (Fixed Deposit & Scheme)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Account Opening (Fixed Deposit & Scheme)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Liability Operations Unit</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Documents</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">10</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">
+                            <span class="bg-[#28a745] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">ON</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <button class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded text-[11px]"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+
+                    <!-- Row 9 (Special Convention example row) -->
+                    <tr class="hover:bg-gray-50">
+                        <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer">Transactional Account: Individual (Conventional) (LOU-1)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Account Opening (Individual)_Conventional (LOU-1)</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Liability Operations Unit</td>
+                        <td class="py-3 px-4 border-r border-gray-200">Documents</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">8</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center"><span class="bg-[#17a2b8] text-white text-[10px] px-2 py-0.5 rounded font-medium">Conventional</span></td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">1</td>
+                        <td class="py-3 px-4 border-r border-gray-200 text-center">
+                            <span class="bg-[#28a745] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider">ON</span>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                            <button class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded text-[11px]"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+</body>
+</html>

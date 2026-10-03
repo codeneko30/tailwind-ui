@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuDex - All Workflow Templates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom toggle switch container styles */
+        .toggle-container {
+            width: 52px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            user-select: none;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+        }
+        /* Toggle knob styling */
+        .toggle-knob {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            background-color: white;
+            border-radius: 9999px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        /* ON State styling */
+        .toggle-on {
+            background-color: #22c55e;
+        }
+        .toggle-on .toggle-knob {
+            transform: translateX(28px);
+        }
+        .toggle-on .toggle-text {
+            left: 6px;
+            color: white;
+        }
+        /* OFF State styling */
+        .toggle-off {
+            background-color: #ef4444;
+        }
+        .toggle-off .toggle-knob {
+            transform: translateX(0px);
+        }
+        .toggle-off .toggle-text {
+            right: 6px;
+            color: white;
+        }
+        /* Toggle text label inside */
+        .toggle-text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased text-gray-800 text-sm">
+
+    <header class="bg-[#222222] text-white flex items-center justify-between px-4 py-2.5 shadow-md">
+        <!-- Logo & Main Menu -->
+        <div class="flex items-center space-x-8">
+            <span class="text-lg font-bold tracking-wider text-red-600 font-serif">DOCUDEX</span>
+            <nav class="hidden md:flex items-center space-x-6 text-sm">
+                <a href="#" class="hover:text-gray-300">Home</a>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Documents</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Workflow</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Old Workflow</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Reports</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+                <div class="relative group cursor-pointer flex items-center space-x-1">
+                    <span class="hover:text-gray-300">Configuration</span>
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Right User & Notification Menu -->
+        <div class="flex items-center space-x-3">
+            <div class="bg-red-600 text-white text-xs px-2 py-0.5 rounded font-semibold">
+                99+
+            </div>
+            <div class="bg-[#333333] text-white text-xs px-3 py-1.5 rounded-md flex items-center space-x-2 cursor-pointer border border-gray-700">
+                <span>MCAPS HUB / LOU.MOD.CHO.CAD</span>
+                <i class="fa-solid fa-chevron-down text-[10px]"></i>
+            </div>
+            <div class="flex items-center space-x-2 cursor-pointer pl-2 border-l border-gray-700">
+                <div class="w-7 h-7 bg-gray-500 rounded-full overflow-hidden flex items-center justify-center text-xs">
+                    <i class="fa-solid fa-user text-gray-200"></i>
+                </div>
+                <span class="text-xs text-gray-300">kashfia</span>
+                <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-[#2e2e2e] text-white px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between shadow-inner">
+        <h1 class="text-xl font-light text-gray-200">All Workflow Templates</h1>
+        <div class="text-xs text-gray-400 mt-2 md:mt-0 flex items-center space-x-2">
+            <i class="fa-solid fa-house text-[11px]"></i>
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-right text-[9px]"></i>
+            <span>Workflow</span>
+            <i class="fa-solid fa-chevron-right text-[9px]"></i>
+            <span class="text-gray-200">All Templates</span>
+        </div>
+    </div>
+
+    <main class="p-6">
+        
+        <!-- Filter Bar -->
+        <div class="bg-white p-3 rounded-md shadow-sm border border-gray-200 mb-6 flex flex-wrap items-center gap-3">
+            <!-- Department Select -->
+            <div class="relative w-64">
+                <select id="filterDept" class="w-full appearance-none bg-white border border-gray-300 rounded-md px-3 py-1.5 pr-8 text-xs text-gray-700 focus:outline-none focus:border-gray-500">
+                    <option value="">Select Department</option>
+                    <option value="Liability Operations Unit">Liability Operations Unit</option>
+                    <option value="CAD (Credit Administration Department)">CAD (Credit Administration Department)</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+            </div>
+
+            <!-- Form Select -->
+            <div class="relative w-64">
+                <select id="filterForm" class="w-full appearance-none bg-white border border-gray-300 rounded-md px-3 py-1.5 pr-8 text-xs text-gray-700 focus:outline-none focus:border-gray-500">
+                    <option value="">Select Form</option>
+                    <option value="Test LOU Form 1">Test LOU Form 1</option>
+                    <option value="Loan Document Approval Process">Loan Document Approval Process</option>
+                    <option value="Individual Opening Form LOU">Individual Opening Form LOU</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </div>
+            </div>
+
+            <!-- Template Name Input -->
+            <div class="w-56">
+                <input type="text" id="filterName" placeholder="Template Name" class="w-full bg-white border border-gray-300 rounded-md px-3 py-1.5 text-xs text-gray-700 focus:outline-none focus:border-gray-500">
+            </div>
+
+            <!-- Search Button -->
+            <button onclick="handleSearch()" class="bg-[#28a745] hover:bg-[#218838] text-white px-3.5 py-1.5 rounded-md text-xs flex items-center space-x-1.5 transition shadow-sm">
+                <i class="fa-solid fa-magnifying-glass text-[10px]"></i>
+                <span>Search</span>
+            </button>
+
+            <!-- Clear Button -->
+            <button onclick="handleClear()" class="bg-[#dc3545] hover:bg-[#c82333] text-white px-3.5 py-1.5 rounded-md text-xs flex items-center space-x-1.5 transition shadow-sm">
+                <i class="fa-solid fa-xmark text-[11px]"></i>
+                <span>Clear</span>
+            </button>
+        </div>
+
+        <div class="bg-white rounded-md shadow-sm border border-gray-200 overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[1100px]">
+                <thead>
+                    <tr class="bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-700">
+                        <th class="py-3 px-4 border-r border-gray-200 w-1/4">Workflow</th>
+                        <th class="py-3 px-4 border-r border-gray-200 w-1/5">Form</th>
+                        <th class="py-3 px-4 border-r border-gray-200 w-1/6">Department</th>
+                        <th class="py-3 px-4 border-r border-gray-200">Category/Product</th>
+                        <th class="py-3 px-4 border-r border-gray-200 text-center">Total Steps</th>
+                        <th class="py-3 px-4 border-r border-gray-200 text-center">Operational Window</th>
+                        <th class="py-3 px-4 border-r border-gray-200 text-center">Display Order</th>
+                        <th class="py-3 px-4 border-r border-gray-200 text-center">Enabled</th>
+                        <th class="py-3 px-4 text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody" class="divide-y divide-gray-200 text-xs text-gray-700">
+                    <!-- Populated dynamically via JS -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <div id="toast" class="fixed bottom-5 right-5 bg-gray-900 text-white px-4 py-2 rounded-md shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 text-xs z-50">
+        Action executed successfully.
+    </div>
+
+    <script>
+        const workflowData = [
+            {
+                id: 1,
+                workflow: "NON-IBW WF Template 1",
+                form: "Test LOU Form 1",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 1,
+                opWindow: "Non-IBW",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 2,
+                workflow: "Investment Approval process",
+                form: "Loan Document Approval Process",
+                department: "CAD (Credit Administration Department)",
+                category: "Documents",
+                totalSteps: 7,
+                opWindow: "",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 3,
+                workflow: "Transactional Account : Individual (Non-IBW)",
+                form: "Individual Opening Form LOU",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 9,
+                opWindow: "Non-IBW",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 4,
+                workflow: "Transactional Account : Individual (IBW)",
+                form: "Individual Opening Form LOU",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 8,
+                opWindow: "IBW",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 5,
+                workflow: "Loan Document Service Flow",
+                form: "Loan Document Approval Process",
+                department: "CAD (Credit Administration Department)",
+                category: "Documents",
+                totalSteps: 2,
+                opWindow: "",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 6,
+                workflow: "Loan Document Approval Process (Case to Case - IDBP/LC Only)",
+                form: "Loan Document Approval Process (Case to Case - IDBP/LC Only)",
+                department: "CAD (Credit Administration Department)",
+                category: "Documents",
+                totalSteps: 5,
+                opWindow: "",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 7,
+                workflow: "Loan Document Approval Process",
+                form: "Loan Document Approval Process",
+                department: "CAD (Credit Administration Department)",
+                category: "Documents",
+                totalSteps: 5,
+                opWindow: "",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 8,
+                workflow: "Account Servicing (Fixed Deposit & Scheme)",
+                form: "Account Opening (Fixed Deposit & Scheme)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 10,
+                opWindow: "",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 9,
+                workflow: "Account Servicing (Non-Individual)",
+                form: "Account Opening (Non-Individual)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 10,
+                opWindow: "",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 10,
+                workflow: "Account Servicing (Individual)",
+                form: "Account Opening (Individual)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 10,
+                opWindow: "",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 11,
+                workflow: "Account Opening (Fixed Deposit & Scheme)",
+                form: "Account Opening (Fixed Deposit & Scheme)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 22,
+                opWindow: "",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 12,
+                workflow: "Account Opening (Individual)",
+                form: "Account Opening (Individual)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 22,
+                opWindow: "",
+                displayOrder: "",
+                enabled: true
+            },
+            {
+                id: 13,
+                workflow: "Account Opening (Individual) old",
+                form: "Account Opening (Individual)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 13,
+                opWindow: "",
+                displayOrder: 0,
+                enabled: true
+            },
+            {
+                id: 14,
+                workflow: "Account Closing",
+                form: "Account Closing",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 8,
+                opWindow: "",
+                displayOrder: 0,
+                enabled: true
+            },
+            {
+                id: 15,
+                workflow: "Transactional Account : Individual (Conventional) (LOU-1)",
+                form: "Account Opening (Individual)_Conventional (LOU-1)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 8,
+                opWindow: "Conventional",
+                displayOrder: 1,
+                enabled: true
+            },
+            {
+                id: 16,
+                workflow: "Transactional Account : Non-Individual (Conventional) (LOU-2)",
+                form: "Account Opening (Non-Individual)_Conventional (LOU-2)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 8,
+                opWindow: "Conventional",
+                displayOrder: 2,
+                enabled: true
+            },
+            {
+                id: 17,
+                workflow: "Term deposit : Individual (Conventional) (LOU-5)",
+                form: "Account Opening (Fixed Deposit & Scheme)_conventional (LOU-5)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 8,
+                opWindow: "Conventional",
+                displayOrder: 3,
+                enabled: true
+            },
+            {
+                id: 18,
+                workflow: "Term deposit : Non-Individual (Conventional) (LOU-5)",
+                form: "Account Opening (Fixed Deposit & Scheme)_conventional (LOU-5)",
+                department: "Liability Operations Unit",
+                category: "Documents",
+                totalSteps: 8,
+                opWindow: "Conventional",
+                displayOrder: 4,
+                enabled: true
+            }
+        ];
+
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="9" class="py-6 text-center text-gray-500">No matching workflow templates found.</td></tr>`;
+                return;
+            }
+
+            data.forEach((item) => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-gray-50 transition';
+
+                let opBadge = '';
+                if (item.opWindow) {
+                    opBadge = `<span class="bg-[#17a2b8] text-white text-[10px] px-2 py-0.5 rounded-md font-medium">${item.opWindow}</span>`;
+                }
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4 border-r border-gray-200 font-medium text-blue-600 hover:underline cursor-pointer" onclick="showToast('Viewing workflow: ${item.workflow}')">${item.workflow}</td>
+                    <td class="py-3 px-4 border-r border-gray-200">${item.form}</td>
+                    <td class="py-3 px-4 border-r border-gray-200">${item.department}</td>
+                    <td class="py-3 px-4 border-r border-gray-200">${item.category}</td>
+                    <td class="py-3 px-4 border-r border-gray-200 text-center">${item.totalSteps}</td>
+                    <td class="py-3 px-4 border-r border-gray-200 text-center">${opBadge}</td>
+                    <td class="py-3 px-4 border-r border-gray-200 text-center">${item.displayOrder !== "" ? item.displayOrder : ''}</td>
+                    <td class="py-3 px-4 border-r border-gray-200 text-center">
+                        <div onclick="toggleStatus(${item.id})" class="toggle-container ${item.enabled ? 'toggle-on' : 'toggle-off'} mx-auto" title="Click to toggle status">
+                            <span class="toggle-text">${item.enabled ? 'ON' : 'OFF'}</span>
+                            <div class="toggle-knob"></div>
+                        </div>
+                    </td>
+                    <td class="py-3 px-4 text-center">
+                        <button onclick="editWorkflow('${item.workflow}')" class="bg-[#007bff] hover:bg-[#0056b3] text-white px-2.5 py-1 rounded-md text-[11px] transition shadow-sm" title="Edit Template">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function toggleStatus(id) {
+            const item = workflowData.find(w => w.id === id);
+            if (item) {
+                item.enabled = !item.enabled;
+                showToast(`Workflow "${item.workflow}" is now ${item.enabled ? 'ON' : 'OFF'}`);
+                renderTable(workflowData);
+            }
+        }
+
+        function handleSearch() {
+            const dept = document.getElementById('filterDept').value;
+            const form = document.getElementById('filterForm').value;
+            const name = document.getElementById('filterName').value.toLowerCase();
+
+            const filtered = workflowData.filter(item => {
+                const matchDept = dept === "" || item.department === dept;
+                const matchForm = form === "" || item.form.includes(form);
+                const matchName = name === "" || item.workflow.toLowerCase().includes(name);
+                return matchDept && matchForm && matchName;
+            });
+
+            renderTable(filtered);
+            showToast(`Found ${filtered.length} matching template(s)`);
+        }
+
+        function handleClear() {
+            document.getElementById('filterDept').value = "";
+            document.getElementById('filterForm').value = "";
+            document.getElementById('filterName').value = "";
+            renderTable(workflowData);
+            showToast("Filters cleared");
+        }
+
+        function editWorkflow(name) {
+            showToast(`Opening editor for: ${name}`);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        window.onload = function() {
+            renderTable(workflowData);
+        };
+    </script>
+
+</body>
+</html>
